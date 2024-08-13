@@ -6,11 +6,23 @@ display_set_gui_size(960, 540);
 select = 0;
 selected = false;
 objs_to_convert = [];
-var _file = file_text_open_write("Input/yeah.txt");
-file_text_write_string(_file, "put your levels here....")
+menu = "ctg"
+menu_select = 0;
+converters = [
+	"ctg",
+	"gtc"
+];
+
+var _file = file_text_open_write("CTG Input/yeah.txt");
+file_text_write_string(_file, "put your rooms here....")
 _file = file_text_close(_file);
+
+_file = file_text_open_write("GTC Input/yeah.txt");
+file_text_write_string(_file, "put your rooms here....")
+_file = file_text_close(_file);
+
 room_name = "main_wfixed.json";
-rooms = files_find_recursive("Input/*.json");
+rooms = files_find_recursive("CTG Input/*.json");
 text_yy = 0;
 scroll = 0;
 bg_alpha = [

@@ -834,7 +834,7 @@ function object_to_id(_obj) {
 			return arr[i][1];
 		}
 	}
-	show_error(_obj + " does not exist in afom, or is not in the original AFOM objects.json. If you think this is a mistake or are using a custom objects mod for AFOM, please contact wilmer2607 on discord.", true);
+	show_message(_obj + " does not exist in afom, or is not in the original AFOM objects.json. If you think this is a mistake or are using a custom objects mod for AFOM, please contact wilmer2607 on discord.");
 }
 function object_get_width_cyop(_obj) {
 	var arr = getObjects();
@@ -843,7 +843,7 @@ function object_get_width_cyop(_obj) {
 			return arr[i][2];
 		}
 	}
-	show_error(_obj + " does not exist in afom, or is not in the original AFOM objects.json. If you think this is a mistake or are using a custom objects mod for AFOM, please contact wilmer2607 on discord.", true);
+	show_message(_obj + " does not exist in afom, or is not in the original AFOM objects.json. If you think this is a mistake or are using a custom objects mod for AFOM, please contact wilmer2607 on discord.");
 }
 function object_get_height_cyop(_obj) {
 	var arr = getObjects();
@@ -852,7 +852,7 @@ function object_get_height_cyop(_obj) {
 			return arr[i][3];
 		}
 	}
-	show_error(_obj + " does not exist in afom, or is not in the original AFOM objects.json. If you think this is a mistake or are using a custom objects mod for AFOM, please contact wilmer2607 on discord.", true);
+	show_message(_obj + " does not exist in afom, or is not in the original AFOM objects.json. If you think this is a mistake or are using a custom objects mod for AFOM, please contact wilmer2607 on discord.");
 }
 function object_get_xoffset_cyop(_obj) {
 	var arr = getObjects();
@@ -861,7 +861,7 @@ function object_get_xoffset_cyop(_obj) {
 			return arr[i][4];
 		}
 	}
-	show_error(_obj + " does not exist in afom, or is not in the original AFOM objects.json. If you think this is a mistake or are using a custom objects mod for AFOM, please contact wilmer2607 on discord.", true);
+	show_message(_obj + " does not exist in afom, or is not in the original AFOM objects.json. If you think this is a mistake or are using a custom objects mod for AFOM, please contact wilmer2607 on discord.");
 }
 function object_get_yoffset_cyop(_obj) {
 	var arr = getObjects();
@@ -870,7 +870,7 @@ function object_get_yoffset_cyop(_obj) {
 			return arr[i][5];
 		}
 	}
-	show_error(_obj + " does not exist in afom, or is not in the original AFOM objects.json. If you think this is a mistake or are using a custom objects mod for AFOM, please contact wilmer2607 on discord.", true);
+	show_message(_obj + " does not exist in afom, or is not in the original AFOM objects.json. If you think this is a mistake or are using a custom objects mod for AFOM, please contact wilmer2607 on discord.");
 }
 function id_to_object(_id) {
 	var arr = getObjects();
@@ -879,7 +879,7 @@ function id_to_object(_id) {
 			return arr[i][0];
 		}
 	}
-	show_error(string(_id) + " does not exist in afom, or is not in the original AFOM objects.json. If you think this is a mistake or are using a custom objects mod for AFOM, please contact wilmer2607 on discord.", true);
+	show_message(string(_id) + " does not exist in afom, or is not in the original AFOM objects.json. If you think this is a mistake or are using a custom objects mod for AFOM, please contact wilmer2607 on discord.");
 }
 function create_blank_gms2_room() {
 	return {
@@ -1122,7 +1122,7 @@ function files_find_recursive(directory) {
     var files = [];
     files[0] = file_find_first(directory, fa_directory);
 	var f = file_find_next();
-	while (f != "") {
+	while (f != "" && !string_ends_with(f, "yeah.txt")) {
 		array_push(files, f);
 		f = file_find_next();
 	}
@@ -1146,4 +1146,39 @@ function approach(a, b, amt) {
 		a = min(a + amt, b);
 	}
 	return a;
+}
+function create_blank_cyop_room() {
+	return {
+		editorVersion: 5.0,
+		instances: [
+		],
+		tile_data: {
+		},
+		backgrounds: {
+		},
+		properties: {
+			songTransitionTime: 100.0,
+			pausecombo: 0.0,
+			roomX: 0.0,
+			levelWidth: 960.0,
+			roomY: 0.0,
+			levelHeight: 540.0,
+			song: "",
+		},
+	}
+}
+function create_cyop_object(_id, _layer, _x, _y, _xscale, _yscale, _flipX, _flipY) {
+	return {
+		layer: _layer,
+		deleted: false,
+		variables: {
+			x: _x,
+			y: _y,
+			image_xscale: _xscale,
+			image_yscale: _yscale,
+			flipX: _flipX,
+			flipY: _flipY
+		},
+		object: _id
+	}
 }

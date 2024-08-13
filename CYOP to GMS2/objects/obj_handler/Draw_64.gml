@@ -50,19 +50,17 @@ for (var i = 0; i < array_length(rooms); i++) {
 }
 var highest_width = get_highest_value(widths);
 
-if (!selected) {
-	draw_set_font(smallfont);
-	draw_set_alpha(0.5);
-	draw_rectangle_color(90, ((-text_yy) - 10) + 100, highest_width + 110, (-text_yy) + (array_length(rooms) * 18) + 110, c_black, c_black, c_dkgray, c_dkgray, false);
-	draw_rectangle(90, ((-text_yy) - 10) + 100, highest_width + 110, (-text_yy) + (array_length(rooms) * 18) + 110, true);
-	for (var i = 0; i < array_length(rooms); i++) {
-		var option_selected = (select == i);
-		draw_set_alpha(option_selected + 0.5);
-		if (option_selected) {
-			draw_text_color(100, (100 + (18 * i)) - text_yy, rooms[i], c_red, c_orange, c_yellow, c_purple, draw_get_alpha());
-		} else {
-			draw_text(100, (100 + (18 * i)) - text_yy, rooms[i]);
-		}
+draw_set_font(smallfont);
+draw_set_alpha(0.5);
+draw_rectangle_color(90, ((-text_yy) - 10) + 100, highest_width + 110, (-text_yy) + (array_length(rooms) * 18) + 110, c_black, c_black, c_dkgray, c_dkgray, false);
+draw_rectangle(90, ((-text_yy) - 10) + 100, highest_width + 110, (-text_yy) + (array_length(rooms) * 18) + 110, true);
+for (var i = 0; i < array_length(rooms); i++) {
+	var option_selected = (select == i);
+	draw_set_alpha(option_selected + 0.5);
+	if (option_selected) {
+		draw_text_color(100, (100 + (18 * i)) - text_yy, rooms[i], c_red, c_orange, c_yellow, c_purple, draw_get_alpha());
+	} else {
+		draw_text(100, (100 + (18 * i)) - text_yy, rooms[i]);
 	}
 }
 draw_set_alpha(1);
