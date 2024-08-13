@@ -196,23 +196,6 @@ if (keyboard_check_pressed(ord("Z")) && !selected) {
 							_y -= verDifference;
 						}
 						var instance = create_cyop_object(object_to_id(gms2object.objectId.name), i, _x, _y, _xscale, _yscale, gms2object.scaleX < 0, gms2object.scaleY < 0);
-						if (_obj == "obj_hallway" && gms2object.hasCreationCode) {
-							_str = "";
-							_file = file_text_open_read(directory + "InstanceCreationCode_" + gms2object.name + ".gml");
-							while (!file_text_eof(_file)) {
-								_str = file_text_readln(_file);
-								if (string_starts_with(_str, "targetRoom")) {
-									var _var = string_split(string_replace(_str, " ", ""), "=");
-									
-									instance.variables.targetRoom == _var[1];
-								}
-								if (string_starts_with(_str, "targetDoor")) {
-									var _var = string_split(string_replace(_str, " ", ""), "=");
-									
-									instance.variables.targetDoor == _var[1];
-								}
-							}
-						}
 						array_push(CYOProom.instances, instance);
 					}
 				}

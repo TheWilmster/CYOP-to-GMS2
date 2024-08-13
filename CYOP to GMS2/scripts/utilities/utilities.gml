@@ -834,7 +834,8 @@ function object_to_id(_obj) {
 			return arr[i][1];
 		}
 	}
-	show_message(_obj + " does not exist in afom, or is not in the original AFOM objects.json. If you think this is a mistake or are using a custom objects mod for AFOM, please contact wilmer2607 on discord.");
+	show_message(_obj + " does not exist in afom, or is not in the original AFOM objects.json. If you think this is a mistake or are using a custom objects mod for AFOM, please contact wilmer2607 on discord. This object will be exported as obj_solid.");
+	return 517;
 }
 function object_get_width_cyop(_obj) {
 	var arr = getObjects();
@@ -843,7 +844,8 @@ function object_get_width_cyop(_obj) {
 			return arr[i][2];
 		}
 	}
-	show_message(_obj + " does not exist in afom, or is not in the original AFOM objects.json. If you think this is a mistake or are using a custom objects mod for AFOM, please contact wilmer2607 on discord.");
+	show_message(_obj + " does not exist in afom, or is not in the original AFOM objects.json. If you think this is a mistake or are using a custom objects mod for AFOM, please contact wilmer2607 on discord. This object will be exported as obj_solid.");
+	return 32;
 }
 function object_get_height_cyop(_obj) {
 	var arr = getObjects();
@@ -852,7 +854,8 @@ function object_get_height_cyop(_obj) {
 			return arr[i][3];
 		}
 	}
-	show_message(_obj + " does not exist in afom, or is not in the original AFOM objects.json. If you think this is a mistake or are using a custom objects mod for AFOM, please contact wilmer2607 on discord.");
+	show_message(_obj + " does not exist in afom, or is not in the original AFOM objects.json. If you think this is a mistake or are using a custom objects mod for AFOM, please contact wilmer2607 on discord. This object will be exported as obj_solid.");
+	return 32;
 }
 function object_get_xoffset_cyop(_obj) {
 	var arr = getObjects();
@@ -861,7 +864,8 @@ function object_get_xoffset_cyop(_obj) {
 			return arr[i][4];
 		}
 	}
-	show_message(_obj + " does not exist in afom, or is not in the original AFOM objects.json. If you think this is a mistake or are using a custom objects mod for AFOM, please contact wilmer2607 on discord.");
+	show_message(_obj + " does not exist in afom, or is not in the original AFOM objects.json. If you think this is a mistake or are using a custom objects mod for AFOM, please contact wilmer2607 on discord. This object will be exported as obj_solid.");
+	return 0;
 }
 function object_get_yoffset_cyop(_obj) {
 	var arr = getObjects();
@@ -870,7 +874,8 @@ function object_get_yoffset_cyop(_obj) {
 			return arr[i][5];
 		}
 	}
-	show_message(_obj + " does not exist in afom, or is not in the original AFOM objects.json. If you think this is a mistake or are using a custom objects mod for AFOM, please contact wilmer2607 on discord.");
+	show_message(_obj + " does not exist in afom, or is not in the original AFOM objects.json. If you think this is a mistake or are using a custom objects mod for AFOM, please contact wilmer2607 on discord. This object will be exported as obj_solid.");
+	return 0;
 }
 function id_to_object(_id) {
 	var arr = getObjects();
@@ -879,7 +884,8 @@ function id_to_object(_id) {
 			return arr[i][0];
 		}
 	}
-	show_message(string(_id) + " does not exist in afom, or is not in the original AFOM objects.json. If you think this is a mistake or are using a custom objects mod for AFOM, please contact wilmer2607 on discord.");
+	show_message(string(_id) + " does not exist in afom, or is not in the original AFOM objects.json. If you think this is a mistake or are using a custom objects mod for AFOM, please contact wilmer2607 on discord. This object will be exported as obj_solid.");
+	return "obj_solid";
 }
 function create_blank_gms2_room() {
 	return {
