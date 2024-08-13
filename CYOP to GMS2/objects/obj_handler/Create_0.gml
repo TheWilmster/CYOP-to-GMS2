@@ -35,3 +35,4 @@ bg_alpha = [
 active_bg = 0;
 alarm[0] = 480;
 audio_play_sound(mu_two_thousands, 0, true);
+window_surface = -4;

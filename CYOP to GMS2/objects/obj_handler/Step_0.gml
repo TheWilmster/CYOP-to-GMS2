@@ -1,6 +1,9 @@
 menu_select = clamp(menu_select + (keyboard_check_pressed(vk_right) - keyboard_check_pressed(vk_left)), 0, array_length(converters) - 1);
 menu = converters[menu_select];
 rooms = menu == "ctg" ? files_find_recursive("CTG Input/*.json") : files_find_recursive("GTC Input/*");
+if (array_contains(rooms, "yeah.txt")) {
+	array_delete(rooms, array_get_index(rooms, "yeah.txt"), 1);
+}
 select = clamp(select + (keyboard_check_pressed(vk_down) - keyboard_check_pressed(vk_up)), 0, array_length(rooms) - 1);
 if (keyboard_check_pressed(ord("Z")) && !selected) {
 	switch (menu) {
