@@ -1118,3 +1118,32 @@ function generate_instance_id() {
 	}
 	return str;
 }
+function files_find_recursive(directory) {
+    var files = [];
+    files[0] = file_find_first(directory, fa_directory);
+	var f = file_find_next();
+	while (f != "") {
+		array_push(files, f);
+		f = file_find_next();
+	}
+    file_find_close();
+	return files;
+}
+function get_highest_value(arr) {
+	var val = arr[0];
+	for (var i = 0; i < array_length(arr); i++) {
+		var mi = clamp(i + 1, 0, array_length(arr) - 1);
+		if (val < arr[mi]) {
+			val = max(arr[i], arr[mi]);
+		}		
+	}
+	return val;
+}
+function approach(a, b, amt) {
+	if (a > b) {
+		a = max(a - amt, b);
+	} else if (a < b) {
+		a = min(a + amt, b);
+	}
+	return a;
+}

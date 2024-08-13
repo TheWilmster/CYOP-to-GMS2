@@ -3,19 +3,23 @@ globalvar smallfont;
 font = font_add_sprite_ext(spr_font, "ABCDEFGHIJKLMNOPQRSTUVWXYZ!.1234567890:\\/()", true, -1);
 smallfont = font_add_sprite_ext(spr_smallfont, "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!._1234567890:?", true, 0);
 display_set_gui_size(960, 540);
-options = [
-	"CYOP to GMS2",
-	"GMS2 to CYOP W.I.P",
-	"Close Converter"
-];
 select = 0;
-menu = "main";
-
 selected = false;
 objs_to_convert = [];
-input_cyop = {};
-show_json = false;
 var _file = file_text_open_write("Input/yeah.txt");
 file_text_write_string(_file, "put your levels here....")
 _file = file_text_close(_file);
-room_name = get_string("Which room do you want to port? (_wfixed is added automatically.)", "main") + "_wfixed";
+room_name = "main_wfixed.json";
+rooms = files_find_recursive("Input/*.json");
+text_yy = 0;
+scroll = 0;
+bg_alpha = [
+	1,
+	0,
+	0,
+	0,
+	0
+];
+active_bg = 0;
+alarm[0] = 480;
+audio_play_sound(mu_two_thousands, 0, true);
