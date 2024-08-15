@@ -37,6 +37,7 @@
   "resources":[
     {"id":{"name":"obj_handler","path":"objects/obj_handler/obj_handler.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"log","path":"scripts/log/log.yy",},},
     {"id":{"name":"utilities","path":"scripts/utilities/utilities.yy",},},
     {"id":{"name":"mu_two_thousands","path":"sounds/mu_two_thousands/mu_two_thousands.yy",},},
     {"id":{"name":"boolsecretbg","path":"sprites/boolsecretbg/boolsecretbg.yy",},},

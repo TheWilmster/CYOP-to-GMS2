@@ -18,6 +18,7 @@
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
   ],
   "ResourceOrderSettings":[
+    {"name":"log","order":1,"path":"scripts/log/log.yy",},
     {"name":"boolsecretbg","order":6,"path":"sprites/boolsecretbg/boolsecretbg.yy",},
     {"name":"boolsecretbg2","order":12,"path":"sprites/boolsecretbg2/boolsecretbg2.yy",},
     {"name":"secret1","order":7,"path":"sprites/secret1/secret1.yy",},

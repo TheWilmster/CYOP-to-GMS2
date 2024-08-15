@@ -5,10 +5,11 @@ if (array_contains(rooms, "yeah.txt")) {
 	array_delete(rooms, array_get_index(rooms, "yeah.txt"), 1);
 }
 select = clamp(select + (keyboard_check_pressed(vk_down) - keyboard_check_pressed(vk_up)), 0, array_length(rooms) - 1);
-if (keyboard_check_pressed(ord("Z")) && !selected) {
+if (keyboard_check_pressed(ord("Z")) && !selected && room_name != "" && array_length(rooms) > 0) {
 	switch (menu) {
 		case "ctg":
-			#region CYOP to GMS2
+			try {
+				#region CYOP to GMS2
 			room_name = string_replace(rooms[select], ".json", "");
 	
 			selected = true;
@@ -163,9 +164,15 @@ if (keyboard_check_pressed(ord("Z")) && !selected) {
 			show_message("Remember: this wont convert obj_sprite! You MUST use an Assets Layer in GameMaker.")
 			selected = false;
 			#endregion
+			} catch (error_data) {
+				show_message("Failed to convert level. This can be caused by:\n-The selected room not being a .json file\n-An error in the rooms code.\nYou can check the error logs folder for more information.")
+				var e = string_concat(error_data.message, "\n\n", error_data.longMessage, "\n\n", error_data.script, "\n\n", error_data.stacktrace);
+				log(e);
+			}
 			break;
 		case "gtc":
-			#region GMS2 to CYOP
+			try {
+				#region GMS2 to CYOP
 			room_name = rooms[select];
 			selected = true;
 			var directory = "GTC Input/" + room_name + "/";
@@ -216,6 +223,11 @@ if (keyboard_check_pressed(ord("Z")) && !selected) {
 			show_message("Make sure to drag both _wfixed AND normal room files into the rooms folder!");
 			selected = false;
 			#endregion
+			} catch (error_data) {
+				show_message("Failed to convert level. This can be caused by:\n-The folder not having a .yy file inside of it.\n-An error in the rooms code.\n-Trying to convert a single .yy file instead of a room folder.\nYou can check the error logs folder for more information.")
+				var e = string_concat(error_data.message, "\n\n", error_data.longMessage, "\n\n", error_data.script, "\n\n", error_data.stacktrace);
+				log(e);
+			}
 			break;
 	}
 }
