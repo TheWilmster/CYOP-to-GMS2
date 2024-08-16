@@ -12,7 +12,7 @@ converters = [
 	"ctg",
 	"gtc"
 ];
-
+project_name = get_string("What's the name of your project file?", "PizzaTower_GM2");
 var _file = file_text_open_write("CTG Input/yeah.txt");
 file_text_write_string(_file, "put your rooms here....")
 _file = file_text_close(_file);
