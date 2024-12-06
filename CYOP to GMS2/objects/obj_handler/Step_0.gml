@@ -25,7 +25,7 @@ if (keyboard_check_pressed(ord("Z")) && !selected && room_name != "" && array_le
 					_str += file_text_readln(_file);
 					_str += "\n";
 				}
-				_file = file_text_close(_file);
+				file_text_close(_file);
 				var CYOProom = json_parse(_str);
 				var _insts = CYOProom[$ "instances"];
 				var _settings = CYOProom[$ "properties"];
@@ -91,7 +91,7 @@ if (keyboard_check_pressed(ord("Z")) && !selected && room_name != "" && array_le
 						if (_creation_code != "") {
 							_file = file_text_open_write(string_concat("CTG Export/" + room_name + "/" + "InstanceCreationCode_", i_id, ".gml"));
 							file_text_write_string(_file, _creation_code);
-							_file = file_text_close(_file);
+							file_text_close(_file);
 							array_push(gms2room.instanceCreationOrder, {
 								name: i_id,
 								path: "rooms/" + room_name + "/" + room_name + ".yy"
@@ -103,7 +103,7 @@ if (keyboard_check_pressed(ord("Z")) && !selected && room_name != "" && array_le
 				_file = file_text_open_write("CTG Export/" + room_name + "/" + room_name + ".yy");
 				var _yy = json_stringify(gms2room, true);
 				file_text_write_string(_file, _yy);
-				_file = file_text_close(_file);
+				file_text_close(_file);
 	
 				var _yyp = file_text_open_read("CTG Input/PizzaTower_GM2.yyp");
 				_str = "";
@@ -111,7 +111,7 @@ if (keyboard_check_pressed(ord("Z")) && !selected && room_name != "" && array_le
 					_str += file_text_readln(_yyp);
 					_str += "\n";
 				}
-				_yyp = file_text_close(_yyp);
+				file_text_close(_yyp);
 				var decompiled_yyp = json_parse(_str);
 				var resource = {
 					id: {
@@ -133,7 +133,7 @@ if (keyboard_check_pressed(ord("Z")) && !selected && room_name != "" && array_le
 				var a = "CTG Input/" + project_name
 				_yyp = file_text_open_write(b + ".yyp");
 				file_text_write_string(_yyp, compiled_yyp);
-				_yyp = file_text_close(_yyp);
+				file_text_close(_yyp);
 	
 				if (!file_exists(a + ".resource_order")) {
 					var _resor = file_text_open_write(a + ".resource_order");
@@ -142,7 +142,7 @@ if (keyboard_check_pressed(ord("Z")) && !selected && room_name != "" && array_le
 						ResourceOrderSettings: [],
 					};
 					file_text_write_string(_resor, json_stringify(struct, true));
-					_resor = file_text_close(_resor);
+					file_text_close(_resor);
 				}
 	
 				var _resor = file_text_open_read(a + ".resource_order");
@@ -151,7 +151,7 @@ if (keyboard_check_pressed(ord("Z")) && !selected && room_name != "" && array_le
 					_str += file_text_readln(_resor);
 					_str += "\n";
 				}
-				_resor = file_text_close(_resor);
+				file_text_close(_resor);
 				var decompiled_resor = json_parse(_str);
 				var struct = {
 					name: room_name,
@@ -162,7 +162,7 @@ if (keyboard_check_pressed(ord("Z")) && !selected && room_name != "" && array_le
 				var compiled_resor = json_stringify(decompiled_resor, true);
 				_resor = file_text_open_write(b + ".resource_order");
 				file_text_write_string(_resor, compiled_resor);
-				_resor = file_text_close(_resor);
+				file_text_close(_resor);
 				show_message("Remember: this wont convert obj_sprite! You MUST use an Assets Layer in GameMaker.")
 				selected = false;
 				#endregion
@@ -185,7 +185,7 @@ if (keyboard_check_pressed(ord("Z")) && !selected && room_name != "" && array_le
 				_str += file_text_readln(_file);
 				_str += "\n"
 			}
-			_file = file_text_close(_file);
+			file_text_close(_file);
 			var gms2room = json_parse(_str);
 			var CYOProom = create_blank_cyop_room();
 			
@@ -218,10 +218,10 @@ if (keyboard_check_pressed(ord("Z")) && !selected && room_name != "" && array_le
 			
 			_file = file_text_open_write("GTC Export/" + room_name + "_wfixed.json");
 			file_text_write_string(_file, json_stringify(CYOProom, true));
-			_file = file_text_close(_file);
+			file_text_close(_file);
 			_file = file_text_open_write("GTC Export/" + room_name + ".json");
 			file_text_write_string(_file, json_stringify(CYOProom, true));
-			_file = file_text_close(_file);
+			file_text_close(_file);
 			show_message("Make sure to drag both _wfixed AND normal room files into the rooms folder!");
 			selected = false;
 			#endregion

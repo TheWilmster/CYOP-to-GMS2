@@ -1,7 +1,6 @@
-globalvar font;
-globalvar smallfont;
-font = font_add_sprite_ext(spr_font, "ABCDEFGHIJKLMNOPQRSTUVWXYZ!.1234567890:\\/()", true, -1);
-smallfont = font_add_sprite_ext(spr_smallfont, "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!._1234567890:?", true, 0);
+// globalvar is deprecated
+global.font = font_add_sprite_ext(spr_font, "ABCDEFGHIJKLMNOPQRSTUVWXYZ!.1234567890:\\/()", true, -1);
+global.smallfont = font_add_sprite_ext(spr_smallfont, "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!._1234567890:?", true, 0);
 display_set_gui_size(960, 540);
 select = 0;
 selected = false;
@@ -14,12 +13,12 @@ converters = [
 ];
 project_name = get_string("What's the name of your project file?", "PizzaTower_GM2");
 var _file = file_text_open_write("CTG Input/yeah.txt");
-file_text_write_string(_file, "put your rooms here....")
-_file = file_text_close(_file);
+file_text_write_string(_file, "put your rooms here....");
+file_text_close(_file);
 
 _file = file_text_open_write("GTC Input/yeah.txt");
-file_text_write_string(_file, "put your rooms here....")
-_file = file_text_close(_file);
+file_text_write_string(_file, "put your rooms here....");
+file_text_close(_file);
 
 room_name = "main_wfixed.json";
 rooms = files_find_recursive("CTG Input/*.json");

@@ -6,5 +6,5 @@ function log(str) {
 	var time = string_concat(current_month, "-", current_day, "-", current_year, " ", current_hour, "-", m);
 	var _file = file_text_open_write(string_concat("error_data/", time, ".txt"));
 	file_text_write_string(_file, str);
-	_file = file_text_close(_file);
+	file_text_close(_file);
 }
